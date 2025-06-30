@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symptom Assessment</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/symptom_assessment.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1 class="neon">Symptom Assessment</h1>
+    </header>
+    <div class="container">
+        <div class="form-container">
+            <h2>Assess Your Symptoms</h2>
+            <form id="symptom-form">
+                <input type="text" id="symptom" placeholder="Describe your symptoms" required>
+                <button type="submit">Submit</button>
+            </form>
+            <div id="assessment-result" style="display:none;">
+                <h3>Assessment Result</h3>
+                <p id="result-text"></p>
+            </div>
+        </div>
+    </div>
+    <script src="js/symptom_assessment.js" defer></script>
+</body>
+</html>

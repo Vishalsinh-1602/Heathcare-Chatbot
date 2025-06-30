@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Education</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        input, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin: 10px 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #007bff;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+        .footer {
+            margin-top: 20px;
+            padding: 10px;
+            background:#007bff;
+            color: white;
+        }
+        .schemes {
+            margin-top: 20px;
+            text-align: left;
+            padding: 20px;
+            background: #e8f5e9;
+            border-radius: 10px;
+        }
+        .schemes h2 {
+            color: #007bff;
+        }
+        .schemes ul {
+            list-style: none;
+            padding: 0;
+        }
+        .schemes li {
+            margin: 10px 0;
+        }
+        .schemes a {
+            text-decoration: none;
+            color:#007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <header>Health Education</header>
+    
+    <div class="container">
+        <h2>Personalized Health Information</h2>
+        <p>Enter a health topic to receive useful insights.</p>
+        <input type="text" id="userInput" placeholder="E.g., Nutrition, Fitness">
+        <button onclick="getHealthInfo()">Get Info</button>
+        <div id="result"></div>
+    </div>
+    
+    <div class="container schemes">
+        <h2>Government of India Health Schemes</h2>
+        <ul>
+            <li><a href="https://www.pmjay.gov.in" target="_blank">Ayushman Bharat - PMJAY</a>: Provides health insurance coverage to economically disadvantaged families.</li>
+            <li><a href="https://www.nhp.gov.in" target="_blank">National Health Mission (NHM)</a>: Strengthening public healthcare services.</li>
+            <li><a href="https://www.esic.gov.in" target="_blank">Employee State Insurance Scheme (ESIC)</a>: Health benefits for employees.</li>
+            <li><a href="https://www.indiacsr.in/pradhan-mantri-matron-vandana-yojna/" target="_blank">Pradhan Mantri Matru Vandana Yojana</a>: Maternity benefit program for pregnant women.</li>
+            <li><a href="https://www.pmjdy.gov.in" target="_blank">Rashtriya Swasthya Bima Yojana</a>: Health insurance for below-poverty-line families.</li>
+        </ul>
+    </div>
+    
+    <div class="footer">&copy; 2025 Health Education | Stay Informed, Stay Healthy</div>
+    
+    <script>
+        function getHealthInfo() {
+            const input = document.getElementById("userInput").value.toLowerCase();
+            const resultDiv = document.getElementById("result");
+            
+            const healthTips = {
+                "nutrition": "A balanced diet supports overall well-being.",
+                "fitness": "Daily exercise enhances physical and mental health.",
+                "mental health": "Mindfulness and rest reduce stress.",
+                "hydration": "Drink at least 8 glasses of water daily.",
+                "sleep": "7-9 hours of sleep improve concentration.",
+                "stress management": "Deep breathing helps in stress relief.",
+                "heart health": "Omega-3 fatty acids support heart function.",
+                "bone health": "Calcium-rich foods strengthen bones.",
+                "weight management": "Portion control prevents overeating.",
+                "immune system": "Vitamin C boosts immunity.",
+                "digestion": "Fiber-rich foods aid digestion.",
+                "eye health": "Carrots and leafy greens improve vision.",
+                "diabetes management": "Monitor blood sugar levels regularly.",
+                "blood pressure": "Reduce sodium intake to manage BP.",
+                "cholesterol control": "Avoid trans fats for healthy arteries.",
+                "brain health": "Puzzles and reading keep the brain sharp.",
+                "skin care": "Stay hydrated for glowing skin.",
+                "posture": "Maintain good posture to prevent back pain.",
+                "sun protection": "Use sunscreen to protect from UV rays.",
+                "oral health": "Brush twice daily for healthy teeth.",
+                "lung health": "Avoid smoking to keep lungs strong.",
+                "gut health": "Probiotics support healthy digestion.",
+                "joint health": "Stretching prevents stiffness.",
+                "hearing care": "Avoid loud noises to protect ears.",
+                "liver health": "Limit alcohol intake for liver function.",
+                "kidney health": "Stay hydrated to support kidney function.",
+                "thyroid health": "Iodine-rich foods maintain thyroid balance.",
+                "gut microbiome": "Fermented foods improve gut bacteria.",
+                "allergy management": "Identify triggers to prevent reactions.",
+                "dehydration prevention": "Drink water before feeling thirsty.",
+                "healthy snacking": "Choose nuts over processed snacks.",
+                "fiber intake": "Whole grains aid digestion.",
+                "healthy fats": "Avocados provide good fats.",
+                "antioxidants": "Berries help fight oxidative stress.",
+                "protein intake": "Lean meats build muscle mass.",
+                "sleep hygiene": "Avoid screens before bedtime.",
+                "morning routine": "Start the day with stretching.",
+                "workout recovery": "Protein helps muscle repair.",
+                "hydration tracking": "Use a water bottle with measurements.",
+                "cardio exercise": "Boosts heart health and endurance.",
+                "strength training": "Increases muscle and bone density.",
+                "yoga practice": "Enhances flexibility and relaxation.",
+                "meditation benefits": "Calms the mind and reduces anxiety.",
+                "breathing exercises": "Improve oxygen intake and calmness.",
+                "healthy cooking": "Steam or grill instead of frying.",
+                "healthy beverages": "Green tea supports metabolism.",
+                "meal planning": "Prevents unhealthy food choices.",
+                "seasonal eating": "Supports nutrient-rich food intake.",
+                "organic choices": "Reduces pesticide exposure.",
+                "plant-based diet": "Enhances heart health.",
+                "healthy lifestyle": "Consistency leads to long-term benefits.",
+                "work-life balance": "Reduces burnout and improves productivity.",
+                "hydration reminder": "Set phone alerts to drink water.",
+                "cycling benefits": "Improves cardiovascular endurance.",
+                "walking benefits": "30 minutes a day boosts health.",
+                "daily stretching": "Prevents injuries and stiffness.",
+                "mental clarity": "Journaling helps process thoughts.",
+                "self-care routine": "Reduces stress and boosts happiness.",
+                "digital detox": "Less screen time improves sleep.",
+                "social connection": "Strengthens mental well-being.",
+                "hobby development": "Enhances creativity and joy.",
+                "positive mindset": "Gratitude improves happiness.",
+                "healthy relationships": "Communication strengthens bonds.",
+                "time management": "Reduces stress and improves efficiency.",
+                "meal timing": "Regular meals stabilize metabolism.",
+                "immune boosting foods": "Garlic and turmeric support health.",
+                "vitamin D intake": "Sun exposure strengthens bones.",
+                "iron-rich foods": "Spinach and red meat prevent anemia.",
+                "magnesium benefits": "Regulates nerve and muscle function.",
+                "sodium control": "Limit salt to prevent high BP.",
+                "sugar intake": "Reduce processed sugar consumption.",
+                "gut-brain connection": "Healthy gut supports mental clarity.",
+                "body detox": "Lemon water aids digestion.",
+                "healthy aging": "Stay active and eat well.",
+                "balanced diet": "Include all nutrients in meals.",
+                "muscle recovery": "Sleep aids muscle repair.",
+                "hormone balance": "Healthy fats regulate hormones.",
+                "eye strain relief": "Follow the 20-20-20 rule for screens.",
+                "skin hydration": "Use moisturizers daily.",
+                "anti-aging foods": "Walnuts and blueberries slow aging.",
+                "bloating relief": "Ginger tea soothes digestion.",
+                "natural remedies": "Honey soothes sore throats.",
+                "heart-friendly oils": "Olive oil is best for cooking.",
+                "smooth digestion": "Chew food properly.",
+                "gut-friendly habits": "Eat probiotic-rich foods.",
+                "healthy breakfast": "Start with protein and fiber.",
+                "mind-body connection": "Relaxation techniques reduce stress.",
+                "hygiene practices": "Wash hands to prevent infections.",
+                "disease prevention": "Regular checkups detect early signs.",
+                "energy-boosting foods": "Bananas provide quick energy.",
+                "healthy workplace": "Take breaks to avoid fatigue.",
+                "recovery tips": "Ice packs reduce swelling.",
+                "low-impact exercises": "Swimming is easy on joints.",
+                "immune-boosting habits": "Regular sleep supports immunity.",
+                "lifestyle changes": "Small steps lead to big results."
+            };
+            
+            resultDiv.innerHTML = healthTips[input] || "Try another topic!";
+        }
+    </script>
+</body>
+</html>

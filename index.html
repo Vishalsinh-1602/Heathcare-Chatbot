@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="welcome">HealthMate Chatbot</title>
+    <link rel="stylesheet" href="fonts/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Internal CSS for small edits */
+       
+        .profile-container label {
+            cursor: pointer;
+            color: #007bff;
+            transition: color 0.3s;
+        }
+        .profile-container label:hover {
+            color: #0056b3;
+        }
+
+        .start-chat, .camera-access, .video-call, .profile-management, .admin-panel {
+    padding: 12px 24px; /* Adjusted padding for uniform size */
+    width: 180px; /* Set a fixed width for consistency */
+    height: 50px; /* Set a fixed height */
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 1.1em;
+    transition: background 0.3s, transform 0.3s;
+    margin: 10px;
+    text-align: center;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.start-chat:hover, .camera-access:hover, .video-call:hover, .profile-management:hover, .admin-panel:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+    </style>
+    <script type="text/javascript" async>
+        (function(d,s){
+        var l=d.createElement(s),e=d.getElementsByTagName(s)[0];
+        l.async=true;l.type='text/javascript';
+        l.src='https://app.letsconnect.at/embed.js';
+        l.id='PfzPnlFzCuOFAfIbSzeT';
+        e.parentNode.insertBefore(l,e);})(document,'script');
+    </script>
+        
+</head>
+<body class="light-mode">
+  <!-- <?php if (isset($_GET['registration']) && $_GET['registration'] == 'success'): ?>
+        <div class="success-message" id="success-message">
+            <p>Registration successful! You can now log in.</p>
+        </div>
+    <?php endif; ?> -->
+    <header class="main-header">
+        <nav class="nav-menu">
+            <div class="logo">
+                <img src="images/logo.png" alt="HealthMate Logo">
+                <h1 class="team-name">HealthMate</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" onclick="loadContent('home')" data-translate="home">Home</a></li>
+                <li><a href="#services" onclick="loadContent('services')" data-translate="our_services">Services</a></li>
+                <li><a href="#doctors" onclick="loadContent('doctors')" data-translate="our_doctors">Our Doctors</a></li>
+                <li class="dropdown">
+                    <li class="dropdown">
+                        <a href="#account" data-translate="account">Account ▼</a>
+                        <ul class="dropdown-content">
+                            <li><a href="register.php" onclick="openModal(event, 'register-modal')" data-translate="register">Register</a></li>
+                            <li><a href="login.php" onclick="openModal(event, 'login-modal')" data-translate="login">Login</a></li>
+                            <li><a href="profile.php" data-translate="my_profile">My Profile</a></li>
+                            <li><a href="logout.php" data-translate="logout">Logout</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contact.html" onclick="loadContent('contact'); return false;" data-translate="contact_us">Contact Us</a></li>
+                    <script>
+                    function openModal(event, modalId) {
+                        event.preventDefault(); // Prevent default navigation
+                        document.getElementById(modalId).style.display = "block"; // Show modal
+                    }
+                    </script>
+                    
+                </li>
+            </ul>
+            <div class="profile-container">
+                <div class="profile-circle">
+                    <img src="images/profile.jpg" alt="Profile Picture" id="profile-image">
+                    <div class="profile-dropdown">
+                        <a href="#profile" onclick="loadContent('profile')" data-translate="my_profile">My Profile</a>
+                    </div>
+                </div>
+                <input type="file" id="profile-image-input" accept="image/*">
+                <label for="profile-image-input" style="margin-top: 50px;">Change Image</label>
+            </div>
+            <button id="theme-toggle" class="theme-toggle">&#9788;</button>
+        </nav>
+    </header>
+    <div class="language-switcher">
+        🌐  
+        <span class="lang-option" data-lang="en"> English</span> |  
+        <span class="lang-option" data-lang="hi">हिंदी</span> |  
+        <span class="lang-option" data-lang="gu">ગુજરાતી </span>
+    </div>
+    <div class="container" id="main-content">
+        <div id="home" class="section active">
+            <h1 data-translate="welcome">Welcome to HealthMate</h1>
+            <p data-translate="personal_health_assistant">Your personal health assistant</p>
+            <button class="start-chat" id="start-chat-text" data-translate="start_chat" onclick="window.location.href='http://localhost:5000'">
+                <img src="https://cdn-icons-png.flaticon.com/512/724/724715.png" alt="Chat Logo" width="20" height="20"> 
+                Start Chat With Text
+            </button>
+            
+            <button class="start-chat" id="start-chat-audio-text" data-translate="start_chat" onclick="window.location.href='http://localhost:7860'">
+                <img src="https://cdn-icons-png.flaticon.com/512/1829/1829586.png" alt="Audio & Image Chat Logo" width="24" height="24"> 
+                Chat With Audio-Image
+            </button>
+            
+            <button class="video-call" id="video-call" data-translate="start_video_call" onclick="pathadvice.connect()">
+                <img src="https://cdn-icons-png.flaticon.com/512/2920/2920253.png" alt="Video Call Logo" width="24" height="24"> 
+                Start Video Call
+            </button>
+            
+            <button class="profile-management" id="profile-management" data-translate="manage_profile" onclick="window.location.href='profile.php'">
+                <img src="https://cdn-icons-png.flaticon.com/512/1250/1250689.png" alt="Manage Profile Logo" width="24" height="24"> 
+                Manage Profile
+            </button>
+            
+            <button class="admin-panel" id="admin-panel" data-translate="admin_panel" onclick="window.location.href='admin.php'">
+                <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Admin Panel Logo" width="24" height="24"> 
+                Admin Panel
+            </button>
+            
+        </div>
+        <div id="services" class="section">
+            <h1 data-translate="our_services">Our Services</h1>
+            <p>We offer a range of services to help you manage your health.</p>
+            <!-- Add more content about services here -->
+        </div>
+        <div id="doctors" class="section">
+            <h1 data-translate="our_doctors">Our Doctors</h1>
+            <div class="doctor-list">
+                <div class="doctor">
+                    <img src="images/doctor1.jpg" alt="Doctor 1">
+                    <h3>Dr. John Doe</h3>
+                    <p>Cardiologist</p>
+                </div>
+                <div class="doctor">
+                    <img src="images/doctor2.jpg" alt="Doctor 2">
+                    <h3>Dr. Jane Smith</h3>
+                    <p>Neurologist</p>
+                </div>
+                <!-- Add more doctors here -->
+            </div>
+        </div>
+    </div>
+    <div class="feature-section">
+        <div class="feature-card" id="symptom-assessment">
+            <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+            <div class="feature-content">
+                <h3 data-translate="symptom_assessment">Symptom Assessment</h3>
+                <p>Assess your symptoms and get preliminary guidance.</p>
+                <button class="feature-btn" id="symptom-assessment-btn" data-translate="start_assessment">Start Assessment</button>
+            </div>
+        </div>
+        <div class="feature-card" id="appointment-management">
+            <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
+            <div class="feature-content">
+                <h3 data-translate="appointment_management">Appointment Management</h3>
+                <p>Schedule, reschedule, or cancel appointments.</p>
+                <button class="feature-btn" id="appointment-management-btn" data-translate="manage_appointments" onclick="window.location.href='userappointment.html'">Manage Appointments</button>
+            </div>
+        </div>
+        <div class="feature-card" id="medication-management">
+            <div class="feature-icon"><i class="fas fa-pills"></i></div>
+            <div class="feature-content">
+                <h3 data-translate="medication_management">Medication Management</h3>
+                <p>Get medication reminders and track adherence.</p>
+                <button class="feature-btn" id="manage-medications-btn" data-translate="manage_medications" onclick="window.location.href='medicationmanagement.html'">Manage Medications</button>
+
+            </div>
+        </div>
+        <div class="feature-card" id="health-education">
+            <div class="feature-icon"><i class="fas fa-book-medical"></i></div>
+            <div class="feature-content">
+                <h3 data-translate="health_education">Health Education</h3>
+                <p>Receive personalized health information and education.</p>
+                <button class="feature-btn" id="health-education-btn" data-translate="learn_more" onclick="window.location.href='healtheducation.html'">Learn More</button>
+            </div>
+        </div>
+        <div class="feature-card" id="mental-health-support">
+            <div class="feature-icon"><i class="fas fa-brain"></i></div>
+            <div class="feature-content">
+                <h3 data-translate="mental_health_support">Mental Health Support</h3>
+                <p>Access resources and support for mental health.</p>
+                <button class="feature-btn" id="mental-health-support-btn" data-translate="get_support" onclick="window.location.href='mentalhealth.html'">Get Support</button>
+            </div>
+        </div>
+    </div>
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            <span data-translate="healthmate_chatbot">HealthMate Chatbot</span>
+            <button id="minimize-chat" class="chat-control">-</button>
+            <button id="close-chat" class="chat-control">x</button>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-message bot" data-translate="chatbot_greeting">Hello! I'm HealthMate. How can I assist you today?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" class="chat-input" id="chat-input" placeholder="Type your message..." data-translate="type_message">
+            <button class="chat-send" id="chat-send" data-translate="send">Send</button>
+            <button class="chat-send" id="chat-emoji">😊</button>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="about_us">About Us</h3>
+                <p data-translate="about_us_text">HealthMate is your trusted AI health assistant, providing personalized healthcare guidance 24/7.</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="quick_links">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#services" onclick="loadContent('services')" data-translate="services">Services</a></li>
+                    <li><a href="#doctors" onclick="loadContent('doctors')" data-translate="our_doctors">Our Doctors</a></li>
+                    <li><a href="#contact" onclick="loadContent('contact')" data-translate="contact_us">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="legal">Legal</h3>
+                <ul class="footer-links">
+                    <li><a href="#privacy" onclick="loadContent('privacy')" data-translate="privacy_policy">Privacy Policy</a></li>
+                    <li><a href="#terms" onclick="loadContent('terms')" data-translate="terms_of_service">Terms of Service</a></li>
+                    <li><a href="#disclaimer" onclick="loadContent('disclaimer')" data-translate="medical_disclaimer">Medical Disclaimer</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="connect_with_us">Connect With Us</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                    <li><a href="#"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 HealthMate. All rights reserved.</p>
+            <button id="scroll-top" class="scroll-top" data-translate="top">Top</button>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('register-modal')">&times;</span>
+            <div class="form-container">
+                <h2 data-translate="register">Register</h2>
+                <form action="register.php" method="POST">  
+                <input type="text" name="username" id="register-username" placeholder="Username" required data-translate="username">
+                <input type="email" name="email" id="register-email" placeholder="Email" required data-translate="email">
+                <input type="password" name="password" id="register-password" placeholder="Password" required data-translate="password">
+                <input type="password" name=confirm_password id="register-confirm-password" placeholder="Confirm Password" required data-translate="confirm_password">
+                <input type="text" name="phone" id="register-phone" placeholder="Phone Number" required data-translate="phone_number">
+                <select name="gender" id="register-gender" required data-translate="gender">
+                    <option value="" disabled selected data-translate="gender">Gender</option>
+                    <option value="male" data-translate="male">Male</option>
+                    <option value="female" data-translate="female">Female</option>
+                    <option value="other" data-translate="other">Other</option>
+                </select>
+                <input type="date" name="dob" id="register-dob" placeholder="Date of Birth" required data-translate="date_of_birth">
+                <button type="submit" onclick="register()" data-translate="submit">Register</button>
+                </form>
+                <div class="social-login">
+                    <button class="facebook" onclick="socialLogin('facebook')">Facebook</button>
+                    <button class="google" onclick="socialLogin('google')">Google</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="login-modal" class="modal">
+      <div class="modal-content">
+          <span class="close" onclick="closeModal('login-modal')">&times;</span>
+          <div class="form-container">
+              <h2 data-translate="login">Login</h2>
+              <form action="login.php" method="post">
+                  <input type="text" name="username" id="login-username" placeholder="Username" required data-translate="username">
+                  <input type="password" name="password" id="login-password" placeholder="Password" required data-translate="password">
+                  <button type="submit" data-translate="submit">Login</button>
+              </form>
+              <div class="social-login">
+                  <button class="facebook" onclick="socialLogin('facebook')">Facebook</button>
+                  <button class="google" onclick="socialLogin('google')">Google</button>
+              </div>
+              <div class="forgot-password" onclick="openModal('forgot-password-modal')" data-translate="forgot_password">Forgot Password?</div>
+          </div>
+      </div>
+    </div>
+
+    <div id="forgot-password-modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('forgot-password-modal')">&times;</span>
+        <div class="form-container">
+            <h2 data-translate="reset_password">Reset Password</h2>
+            <input type="email" id="reset-email" placeholder="Email" required data-translate="email">
+            <button onclick="resetPassword()" data-translate="submit">Reset Password</button>
+        </div>
+    </div>
+</div>
+
+
+    <div id="google_translate_element"></div>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script src="js/script.js" defer></script>
+    <script src="js/camera.js" defer></script>
+    <script src="js/video_call.js" defer></script>
+    <script src="https://translate.googleapis.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,gu'}, 'google_translate_element');
+        }
+
+        // Close modal when clicking outside of it
+        window.onclick = function(event) {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            });
+        }
+
+        window.onload = function() {
+            const successMessage = document.getElementById('success-message');
+            if (successMessage) {
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

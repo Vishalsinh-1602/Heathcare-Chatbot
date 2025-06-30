@@ -1,0 +1,106 @@
+c:/Users/Dhruvil/Desktop/P2_chatbot/
+├── AppointmentManagement/
+│   ├── appointment_management.html
+│   └── js/
+│       └── appointment_management.js
+├── appointment_management.html
+├── css/
+│   ├── appointment_management.css
+│   ├── login.css
+│   ├── medication_management.css
+│   ├── register.css
+│   ├── style.css
+│   └── symptom_assessment.css
+├── HealthEducation/
+│   ├── health_education.html
+│   └── js/
+│       └── health_education.js
+├── health_education.html
+├── Images/
+│   ├── logo.png
+│   └── profile.jpg
+├── index.html
+├── js/
+│   ├── appointment_management.js
+│   ├── audio.js
+│   ├── camera.js
+│   ├── login.js
+│   ├── medication_management.js
+│   ├── register.js
+│   ├── script.js
+│   ├── symptom_assessment.js
+│   └── video_call.js
+├── languages/
+│   ├── en.json
+│   ├── gu.json
+│   └── hi.json
+├── login.html
+├── MedicationManagement/
+│   ├── js/
+│   │   └── medication_management.js
+│   └── medication_management.html
+├── medication_management.html
+├── payment.html
+├── register.html
+├── StartWithAudio/
+│   ├── .env
+│   ├── .gradio/
+│   │   ├── certificate.pem
+│   │   └── flagged/
+│   │       ├── audio_filepath/
+│   │       │   └── b09b3d1a305b14d447a9/
+│   │       │       └── audio.wav
+│   │       ├── dataset1.csv
+│   │       ├── image_filepath/
+│   │       │   └── ef694bc2155044273293/
+│   │       │       └── acne.jpeg
+│   │       └── output 2/
+│   │           └── deb2d9f124950518dcb0/
+│   ├── acne.jpeg
+│   ├── app.py
+│   ├── brain_of_the_doctor.py
+│   ├── final.mp3
+│   ├── final.wav
+│   ├── gradio_app.py
+│   ├── gtts_testing.mp3
+│   ├── headache.jpg
+│   ├── om/
+│   │   ├── botd.py
+│   │   ├── ga.py
+│   │   ├── om.py
+│   │   ├── votd.py
+│   │   └── votp.py
+│   ├── patient_voice_test_for_patient.mp3
+│   ├── voices/
+│   ├── voice_of_the_doctor.py
+│   ├── voice_of_the_patient.py
+│   └── __pycache__/
+│       ├── brain_of_the_doctor.cpython-312.pyc
+│       ├── brain_of_the_doctor.cpython-313.pyc
+│       ├── voice_of_the_doctor.cpython-312.pyc
+│       ├── voice_of_the_doctor.cpython-313.pyc
+│       ├── voice_of_the_patient.cpython-312.pyc
+│       └── voice_of_the_patient.cpython-313.pyc
+├── StartWithChat/
+│   ├── .env
+│   ├── app.py
+│   ├── connect_memory_with_llm.py
+│   ├── create_memor_for_llm.py
+│   ├── data/
+│   │   └── The_GALE_ENCYCLOPEDIA_of_MEDICINE_SECOND.pdf
+│   ├── gunicorn_config.py
+│   ├── requirements.txt
+│   ├── templates/
+│   │   └── index.html
+│   └── vectorstore/
+│       └── db_faiss/
+│           ├── index.faiss
+│           └── index.pkl
+├── startwithchat.js
+├── SymptomAssessment/
+│   ├── css/
+│   │   └── symptom_assessment.css
+│   ├── js/
+│   │   └── symptom_assessment.js
+│   └── symptom_assessment.html
+└── symptom_assessment.html

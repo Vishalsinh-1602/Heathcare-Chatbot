@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medication Management</title>
+    <link rel="stylesheet" href="medicationmanagement.css">
+</head>
+<body>
+    <header>Medication Management</header>
+    
+    <div class="container">
+        <h2>Manage Your Medications</h2>
+        <form id="medication-form" method="POST" action="medicationmanagement.php">
+            
+            <div class="form-group">
+                <label for="medicine-name">Medicine Name:</label>
+                <input type="text" id="medicine-name" name="medicine-name" placeholder="Enter medicine name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="medicine-times">How many times do you take the medicine?</label>
+                <select id="medicine-times" name="medicine-times" required>
+                    <option value="1">1 time</option>
+                    <option value="2">2 times</option>
+                    <option value="3">3 times</option>
+                </select>
+            </div>
+
+            <div id="alarm-times-container"></div>
+
+            <button type="submit">Save Medication</button>
+        </form>
+    </div>
+
+    <div class="footer">&copy; 2025 Medication Management System</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const medicineTimesSelect = document.getElementById("medicine-times");
+            const alarmContainer = document.getElementById("alarm-times-container");
+
+            function generateTimeFields() {
+                const count = parseInt(medicineTimesSelect.value, 10);
+                alarmContainer.innerHTML = "";
+
+                for (let i = 1; i <= count; i++) {
+                    const div = document.createElement("div");
+                    div.classList.add("form-group");
+                    div.innerHTML = `
+                        <label for="alarm-time-${i}">Time for taking medicine (${i}):</label>
+                        <input type="time" id="alarm-time-${i}" name="alarm-time-${i}" required>
+                    `;
+                    alarmContainer.appendChild(div);
+                }
+            }
+
+            // Initialize fields on page load
+            generateTimeFields();
+
+            // Update fields when user changes selection
+            medicineTimesSelect.addEventListener("change", generateTimeFields);
+        });
+    </script>
+</body>
+</html>

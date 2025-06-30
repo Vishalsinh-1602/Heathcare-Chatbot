@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment</h1>
+        <p>Please complete the payment to proceed with the video call.</p>
+        <form id="payment-form">
+            <input type="text" placeholder="Card Number" required>
+            <input type="text" placeholder="Expiry Date" required>
+            <input type="text" placeholder="CVV" required>
+            <button type="submit">Pay Now</button>
+        </form>
+    </div>
+    <script>
+        document.getElementById('payment-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Payment successful! Initiating video call...');
+            // Redirect to video call page or initiate video call
+        });
+    </script>
+</body>
+</html>
